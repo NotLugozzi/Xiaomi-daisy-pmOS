@@ -11,11 +11,11 @@
 - [x] Weston interface
 - [x] SSH to the device
 - [x] Wayland now knows the screen resolution
+- [x] Charging and thermal controls
 #### broken/partial support:
 - [ ] Touchscreen support
 - [ ] Usb networking
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
-- [ ] Charging and thermal controls
 - [ ] usb OTG
 - [ ] mainline pmos kernel
 
@@ -35,9 +35,10 @@ pmbootstrap init
 and set it up like this
 ![pmbs_init](https://github.com/NotLugozzi/xiaomi-daisy-pmos/blob/main/images/pmbootstrap%20init.png)
 #### Build the kernel
-After setting it up run this command, it'll validate checksums for all the necessary patch files and for the kernel itself. If this doesnt give an error we can move to actually building linux and the device specific packages
+After setting pmbootstrap up run this 2 commands, the first will validate checksums for all the necessary patches and for the kernel itself, the second one will verify the device specific package. If they don't give any errors we can move to actually building The Kernel
 ```python
 pmbootstrap checksum linux-xiaomi-daisy-2
+pmbootstrap checksum device-xiaomi-daisy-2
 ```
 We're going to compile 2 things, the kernel itself and some device specific packages; at this point you should open another terminal window running **pmbootstrap log** to check the compile job in real time. The first command we'll run is this
 ```python
@@ -60,7 +61,7 @@ and then connecting your phone to the vm and flashing the kernel on that. Person
 Just to be sure everything works, run dmesg and check if you get this output:
 ![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png)
 ##### Experimental Features
-As of now this port includes a working driver for the gpu and openGL. to test it out you'll need to edit a file using nano/vi **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. you'll need to add this to make wayland work properly:
+As of now this port includes a working driver for the gpu and openGL. to test it out you'll need to edit a file using nano **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. you'll need to add this to make wayland work properly:
 ```
 if test -z "${XDG_RUNTIME_DIR}"; then
   export XDG_RUNTIME_DIR=/tmp/$(id -u)-runtime-dir
