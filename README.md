@@ -8,8 +8,9 @@
 - [x] building
 - [x] installing
 - [x] booting
-- [x] Wayland compositor and the Weston interface(kinda broken - i'll explain later)
-- [x] SSH in the device
+- [x] Wayland compositor and the Weston interface
+- [x] SSH to the device
+- [x] Wayland now knows the screen resolution
 #### broken/partial support:
 - [ ] Touchscreen support
 - [ ] Usb networking
