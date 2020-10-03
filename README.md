@@ -61,6 +61,7 @@ cat /sys/class/graphics/fb0/modes > /sys/class/graphics/fb0/mode
 ```
 if you dont want to do that but you still want to check if the phone is working properly you should run dmesg and check if you get this output:
 ![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png)
+if you see this^^ congratulations! you got it to work
 ##### Experimental Features
 As of now this port includes a working driver for the gpu and openGL. to test it out you'll need to edit a file using nano/vi **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. you'll need to add this to make wayland work properly:
 ```
