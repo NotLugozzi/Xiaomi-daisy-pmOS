@@ -1,7 +1,7 @@
 # Xiaomi-daisy-pmOS
 
 ### working(ish) port of postmarketOS to the xiaomi mi a2 lite(daisy)
- This port, although heavily taken from [this](https://github.com/matthew-5pl/pmos-xiaomi-daisy), has some modifications and updates to get you up and running with a somewhat funcional pmOS install - [booting to weston](https://youtu.be/JLhaONV8zBw)
+ This port, although heavily taken from [this](https://github.com/matthew-5pl/pmos-xiaomi-daisy), has some modifications and updates, still not mature enough to be daily driven, as it only runs [weston](https://youtu.be/JLhaONV8zBw) as of now
 
 ## List of what works and what doesnt:
 #### works:
