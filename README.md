@@ -56,7 +56,7 @@ fastboot flash system path/to/xiaomi-daisy-2.img
 ```
 and then connecting your phone to the vm and flashing the kernel on that. Personally i use the second method and it works great, no matter what you choose, The first boot will probably take a minute or so because it has to initiallize some stuff. you'll get the pmos boot screen and (hopefully)the weston demo desktop:
 ![boot](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/pmOS%20succesful%20boot.jpg)
-you should run dmesg and check if you get this output:
+Just to be sure everything works, run dmesg and check if you get this output:
 ![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png)
 ##### Experimental Features
 As of now this port includes a working driver for the gpu and openGL. to test it out you'll need to edit a file using nano/vi **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. you'll need to add this to make wayland work properly:
