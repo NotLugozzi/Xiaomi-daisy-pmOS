@@ -16,7 +16,7 @@ deviceinfo_keyboard="false"
 deviceinfo_external_storage="true"
 deviceinfo_screen_width="1080"
 deviceinfo_screen_height="2280"
-deviceinfo_dev_touchscreen="/dev/input/event2"
+deviceinfo_dev_touchscreen="/dev/input/event1"
 deviceinfo_dev_touchscreen_calibration="/etc/pointercal"
 deviceinfo_swap_size_recommended="1024"
 
