@@ -13,7 +13,7 @@
 - [x] Wayland now knows the screen resolution
 - [x] Charging and thermal controls
 - [x] Touchscreen support
-- [ ] Usb networking
+- [x] Usb networking
 #### broken/partial support:
 - [ ] Bluetooth
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
