@@ -5,9 +5,9 @@
 
 ## List of what works and what doesnt:
 #### works:
-- [x] building
-- [x] installing
-- [x] booting
+- [x] Building
+- [x] Installing
+- [x] Booting
 - [x] Weston interface
 - [x] SSH to the device
 - [x] Wayland now knows the screen resolution
