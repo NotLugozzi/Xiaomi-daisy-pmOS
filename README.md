@@ -12,8 +12,8 @@
 - [x] SSH to the device
 - [x] Wayland now knows the screen resolution
 - [x] Charging and thermal controls
+- [x] Touchscreen support
 #### broken/partial support:
-- [ ] Touchscreen support
 - [ ] Usb networking
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
 - [ ] usb OTG
