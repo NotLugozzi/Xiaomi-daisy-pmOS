@@ -13,13 +13,15 @@
 - [x] Wayland now knows the screen resolution
 - [x] Charging and thermal controls
 - [x] Touchscreen support
-#### broken/partial support:
 - [ ] Usb networking
+#### broken/partial support:
+- [ ] Bluetooth
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
 - [ ] usb OTG
-- [ ] mainline pmos kernel
+- [ ] Mainline pmOS kernel
+- [ ] camera
+- [ ] phosh/Plasma - mobile
 
-Now this might seem like a long list of things that dont work _yet_ but i realized that [xiaomi-vince](https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_5_Plus_(xiaomi-vince)) has the same exact hardware and a lot of the things i'm working on are already a thing on that device, so i'll take _inspiration_ from that pm port
 
 ## How to compile and install 
 First of all you'll need a linux system(or vm), a Mi A2 Lite with an unlocked bootloader and a couple hours..
