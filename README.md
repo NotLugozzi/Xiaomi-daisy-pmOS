@@ -15,7 +15,6 @@
 - [x] Touchscreen support
 - [x] Usb networking
 #### broken/partial support:
-- [ ] Bluetooth
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
 - [ ] usb OTG
 - [ ] Mainline pmOS kernel
@@ -73,4 +72,3 @@ if test -z "${XDG_RUNTIME_DIR}"; then
   fi
 fi
 ```
-This problem should be solved as soon as i'm able to merge the xiaomi-vince port on my current work. i'll update the repo as soon as something new happens
