@@ -62,8 +62,8 @@ and then connecting your phone to the vm and flashing the kernel on that. Person
 ![boot](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/pmOS%20succesful%20boot.jpg)
 Just to be sure everything works, run dmesg and check if you get this output:
 ![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png)
-##### Experimental Features
-As of now this port includes a working driver for the gpu and openGL. to test it out you'll need to edit a file using nano **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. you'll need to add this to make wayland work properly:
+##### Experimental Features. 
+if you want to start demos from the ssh shell, edit the runtime dir script using nano **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. You'll need to add this:
 ```
 if test -z "${XDG_RUNTIME_DIR}"; then
   export XDG_RUNTIME_DIR=/tmp/$(id -u)-runtime-dir
