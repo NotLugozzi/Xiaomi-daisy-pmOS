@@ -33,8 +33,7 @@ after you've installed it, copy the linux-xiaomi-daisy-2 and the device-xiaomi-d
 ```python
 pmbootstrap init
 ```
-and set it up like this
-![pmbs_init](https://github.com/NotLugozzi/xiaomi-daisy-pmos/blob/main/images/pmbootstrap%20init.png)
+and set it up making sure you choose weston as the interface and you allow the proprietary drivers
 #### Build the kernel
 After setting pmbootstrap up run this 2 commands, the first will validate checksums for all the necessary patches and for the kernel itself, the second one will verify the device specific package. If they don't give any errors we can move to actually building The Kernel
 ```python
