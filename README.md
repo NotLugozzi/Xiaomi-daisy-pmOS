@@ -71,3 +71,17 @@ if test -z "${XDG_RUNTIME_DIR}"; then
   fi
 fi
 ```
+The power button isnt currently implemented in the device package, you'll have to edit buttons.conf to make it work. using nano edit this file **/etc/triggerhappy/triggers.d/buttons.conf** and add the lines according to what you need:
+```
+KEY_VOLUMEDOWN+KEY_POWER 1 reboot 
+```
+```
+KEY_VOLUMEUP+KEY_POWER 1 poweroff 
+```
+```
+KEY_POWER 1 poweroff 
+```
+```
+KEY_VOLUMEUP 1 poweroff 
+```
+
