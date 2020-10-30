@@ -22,7 +22,7 @@
 - [ ] phosh/Plasma - mobile
 
 
-## How to compile and install 
+# Installation
 First of all you'll need a linux system(or vm), a Mi A2 Lite with an unlocked bootloader and a couple hours..
 #### Install pmbootstrap
 You'll need this to compile the kernel and the necessary files
@@ -34,17 +34,17 @@ after you've installed it, copy the linux-xiaomi-daisy-2 and the device-xiaomi-d
 pmbootstrap init
 ```
 and set it up making sure you choose weston as the interface and you allow the proprietary drivers
-#### Build the kernel
+#### Building the kernel
 After setting pmbootstrap up run this 2 commands, the first will validate checksums for all the necessary patches and for the kernel itself, the second one will verify the device specific package. If they don't give any errors we can move to actually building The Kernel
 ```python
 pmbootstrap checksum linux-xiaomi-daisy-2
 pmbootstrap checksum device-xiaomi-daisy-2
 ```
-We're going to compile 2 things, the kernel itself and some device specific packages; at this point you should open another terminal window running **pmbootstrap log** to check the compile job in real time. The first command we'll run is this
+We're going to compile 2 files, the kernel itself and some device specific packages; at this point you should open another terminal window running **pmbootstrap log** to check the compile job in real time. The first command we'll run is this
 ```python
 pmbootstrap build linux-xiaomi-daisy-2
 ```
-go grab a coffee and some snacks as this can take up to 3 hours on older hardware - hopefully you'll only have to compile once, without any errors or stuff like that. After you've compiled the kernel, run this command for the specific packages
+go grab a coffee and some snacks as this can take up to 3 hours on older hardware - hopefully you'll only have to compile once, without any errors or stuff like that - if you had errors you should try running **pmbootstrap kconfig check**. After you've compiled the kernel, run this command for the specific packages
 ```python
 pmbootstrap build device-xiaomi-daisy-2
 ```
@@ -84,4 +84,5 @@ KEY_POWER 1 poweroff
 ```
 KEY_VOLUMEUP 1 poweroff 
 ```
-
+##Contributing
+If you want to contribute to the development of this project, edit the files and do a pr, if you're doing a lot of modifications to the kernel it's recommended to fork the repo to your account and merge once you've done your changes. In both cases remember to give a short desctiption about the changes you made so that i can understand what you changed
