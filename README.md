@@ -1,5 +1,5 @@
 # Xiaomi-daisy-pmOS
-
+All the code in this repository is distributed under the GNU GPL 2.0 license, read it [here](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/LICENSE) for further details
 ### working(ish) port of postmarketOS to the xiaomi mi a2 lite(daisy)
  This port, although heavily taken from [this](https://github.com/matthew-5pl/pmos-xiaomi-daisy), has some modifications and updates, still not mature enough to be daily driven, as it only runs [weston](https://youtu.be/JLhaONV8zBw) as of now - We are very sorry for the slow pace of the development, its a team of 2 porting to a brand new device and getting a basic framebuffer demo in less than 4 days has been a pretty good thing, now we're working on some things we don't fully understand yet, but we'll get there 
 
@@ -86,3 +86,6 @@ KEY_VOLUMEUP 1 poweroff
 ```
 ##Contributing
 If you want to contribute to the development of this project, edit the files and do a pr, if you're doing a lot of modifications to the kernel it's recommended to fork the repo to your account and merge once you've done your changes. In both cases remember to give a short desctiption about the changes you made so that i can understand what you changed
+
+
+
