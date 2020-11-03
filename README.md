@@ -11,16 +11,15 @@ All the code in this repository is distributed under the GNU GPL 2.0 license, re
 - [x] Weston interface
 - [x] SSH to the device
 - [x] Wayland now knows the screen resolution
-- [x] Charging and thermal controls
-- [x] Touchscreen support
-- [x] Usb networking
+- [x] Charging and thermal controls(P)
+- [x] Touchscreen support(P)
+- [x] Usb networking(P)
 #### broken/partial support:
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
 - [ ] usb OTG
-- [ ] Mainline pmOS kernel
 - [ ] camera
-- [ ] phosh/Plasma - mobile
-
+- [ ] phosh/Plasma mobile
+- [ ] Mainline pmOS kernel
 
 # Installation
 First of all you'll need a linux system(or vm), a Mi A2 Lite with an unlocked bootloader and a couple hours..
