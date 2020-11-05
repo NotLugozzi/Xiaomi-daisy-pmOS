@@ -105,7 +105,4 @@ startplasma-wayland \
 This is how your kwinwrapper should look like:
 ![kwin](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/kwinwrapper.png)
 ## Contributing
-If you want to contribute to the development of this project, edit the files and do a pr, if you're doing a lot of modifications to the kernel it's recommended to fork the repo to your account and merge once you've done your changes. In both cases remember to give a short desctiption about the changes you made so that i can understand what you changed
-
-
-
+If you want to contribute to the development of this project, edit the files and do a pr, if you're doing a lot of modifications to the kernel it's recommended to fork the repo to your account and merge once you've done your changes. In both cases remember to give a short desctiption about the changes you made so that i can merge without having to go thru all your changes  
