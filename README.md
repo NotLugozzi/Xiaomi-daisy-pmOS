@@ -14,11 +14,11 @@ All the code in this repository is distributed under the GNU GPL 2.0 license, re
 - [x] Charging and thermal controls(P)
 - [x] Touchscreen support(P)
 - [x] Usb networking(P)
+- [x] phosh/Plasma mobile(P)
 #### broken/partial support:
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
 - [ ] usb OTG
 - [ ] camera
-- [ ] phosh/Plasma mobile
 - [ ] Mainline pmOS kernel
 
 # Installation
@@ -32,7 +32,7 @@ after you've installed it, copy the linux-xiaomi-daisy-2 and the device-xiaomi-d
 ```python
 pmbootstrap init
 ```
-and set it up making sure you choose weston as the interface and you allow the proprietary drivers
+and set it up. At this point you can select weston or [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS#plasma) as the interface and you allow the proprietary drivers
 #### Building the kernel
 After setting pmbootstrap up run this 2 commands, the first will validate checksums for all the necessary patches and for the kernel itself, the second one will verify the device specific package. If they don't give any errors we can move to actually building The Kernel
 ```python
@@ -83,7 +83,28 @@ KEY_POWER 1 poweroff
 ```
 KEY_VOLUMEUP 1 poweroff 
 ```
-##Contributing
+### Plasma
+If you want to use the plasma mobile DE you'll need to edit **/usr/bin/kwinwrapper** first of all you'll need to comment out the default startup line
+```
+#startplasma-wayland --xwayland --libinput --lockscreen --inputmethod maliit-keyboard --exit-with-session=/usr/lib/libexec/startplasma-waylandsession
+```
+and then add this to the end of the file:
+```
+export KWIN_COMPOSE=QPainter
+export GALLIUM_DRIVER=softpipe
+export LIBGL_ALWAYS_SOFTWARE=1
+
+startplasma-wayland \
+        --framebuffer \
+        --xwayland \
+        --libinput \
+        --inputmethod maliit-server \
+        --exit-with-session=/usr/lib/libexec/startplasma-waylandsession
+
+```
+This is how your kwinwrapper should look like:
+![kwin](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/kwinwrapper.png)
+## Contributing
 If you want to contribute to the development of this project, edit the files and do a pr, if you're doing a lot of modifications to the kernel it's recommended to fork the repo to your account and merge once you've done your changes. In both cases remember to give a short desctiption about the changes you made so that i can understand what you changed
 
 
