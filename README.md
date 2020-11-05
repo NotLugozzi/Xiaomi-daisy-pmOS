@@ -102,6 +102,10 @@ startplasma-wayland \
         --exit-with-session=/usr/lib/libexec/startplasma-waylandsession
 
 ```
+and then restart lightdm
+```
+sudo rc-service lightdm restart
+```
 This is how your kwinwrapper should look like:
 ![kwin](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/kwinwrapper.png)
 ## Contributing
