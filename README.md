@@ -14,7 +14,7 @@ All the code in this repository is distributed under the GNU GPL 2.0 license, re
 - [x] Charging and thermal controls(P)
 - [x] Touchscreen support(P)
 - [x] Usb networking(P)
-- [x] phosh/Plasma mobile(P)
+- [x] Plasma mobile(P)
 #### broken/partial support:
 - [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
 - [ ] usb OTG
