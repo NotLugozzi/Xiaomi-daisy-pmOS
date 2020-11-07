@@ -62,7 +62,7 @@ And then connecting your phone to the vm and flashing the kernel on that. Keep i
 ![boot](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/pmOS%20succesful%20boot.jpg)
 Just to be sure everything works, run dmesg on the linux host and check if you get this output:
 ![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png).
-If your screen is black after installing plasma mobile, dont worry - it's a known issue with the framebuffer mode in the de, read (here)[https://github.com/NotLugozzi/Xiaomi-daisy-pmOS#plasma] for the temporary fix - you'll have to do this only on the first boot - or after reflashing the rootfs.
+                          If your screen is black after installing plasma mobile, do not worry - it's a known issue with the framebuffer mode in the de, read (here)[https://github.com/NotLugozzi/Xiaomi-daisy-pmOS#plasma] for the temporary fix - you'll have to do this only on the first boot - or after reflashing the rootfs.
 ## Experimental Features. 
 if you want to start demos from the ssh shell, edit the runtime dir script using nano **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. You'll need to add this:
 ```
