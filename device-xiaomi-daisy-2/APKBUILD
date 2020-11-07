@@ -15,12 +15,6 @@ subpackages="$pkgname-nonfree-firmware:nonfree_firmware"
 source="deviceinfo
 	fb.modes
 	pointercal
-	misc/100-charging.rules
-	misc/buttons.conf
-	misc/charging.sh
-	misc/discharging.sh
-	ucm/msm8953-snd-card-mtp/HiFi.conf
-	ucm/msm8953-snd-card-mtp/msm8953-snd-card-mtp.conf
 	"
 
 build() {
@@ -32,10 +26,6 @@ package() {
 	devicepkg_package $startdir $pkgname
 	install -Dm644 "$srcdir"/fb.modes "$pkgdir"/etc/fb.modes
 	install -Dm644 "$srcdir"/pointercal "$pkgdir"/etc/pointercal
-	install -Dm644 "$srcdir"/100-charging.rules \
-	"$pkgdir"/etc/udev/rules.d/100-charging.rules
-	install -Dm755 "$srcdir"/charging.sh "$pkgdir"/usr/lib/device-xiaomi-daisy-2/charging.sh
-	install -Dm755 "$srcdir"/discharging.sh "$pkgdir"/usr/lib/device-xiaomi-daisy-2/discharging.sh
 	# Disable v4l udev rules (video4linux), because without the camera
 	# firmware blobs this makes udev helper hang (#1033)
 	mkdir -p "$pkgdir"/etc/udev/rules.d
@@ -44,26 +34,11 @@ package() {
 
 nonfree_firmware() {
 	pkgdesc="Wi-Fi, ADSP Firmware"
-	depends="firmware-xiaomi-vince wcnss-wlan adsp-audio pulseaudio pulseaudio-alsa alsa-plugins-pulse alsa-utils"
+	depends="firmware-xiaomi-daisy-2"
 	install="$pkgname-nonfree-firmware.post-install"
 	mkdir "$subpkgdir"
-
-	# Install triggerhappy evdev rules for daisy-2
-	install -Dm755 "$srcdir"/buttons.conf "$pkgdir"/etc/triggerhappy/triggers.d/buttons.conf
-
-	# Install UCM files for daisy-2
-	install -Dm644 "$srcdir"/HiFi.conf \
-		"$subpkgdir"/usr/share/alsa/ucm2/msm8953-snd-card-mtp/HiFi.conf
-	install -Dm644 "$srcdir"/msm8953-snd-card-mtp.conf \
-		"$subpkgdir"/usr/share/alsa/ucm2/msm8953-snd-card-mtp/msm8953-snd-card-mtp.conf
 }
 
-sha512sums="f8c9036d6378e4d433e85b0f607e47dea76ee132886860fc3803a9c6000bad9eadbbd851dc577ccd605fdaf779bb2fcda46f32c0efda545f788534d3e436db1c  deviceinfo
+sha512sums="9d971c68dd2da2112584f13b3efd58f650df701e7a1f0fdc1d7d98bae63b0e218f89286dbe7e987b2c9e352297335f58ead342336f4fa9aee8329ba47b7584a1  deviceinfo
 9b888f3a4ef3ed3c0b2e9c6a6e8a6c686909c530c3d95be797b47b4eb9deb55d64190b7a3736e44139630bfff5e295625a855052923369fdd37889060a3220ca  fb.modes
-4fa63c184f00033fbae2e4b140c9655061b3b662e337f7bdf5f8e26f7b57d6c66ad01fc93da05ce7d330f0f05bb0d36cc9b356ebfc7eb4200be4d4cc03afc975  pointercal
-b6951e2f8d2e21aa58f15b600a67289900d645b9dcff9992d0864dea383528539fc8b0140bff6af4eba4bb729db79a3d5d88ba248fcf2b579dd8c3cd0e20ae4e  100-charging.rules
-922519b787ab8d6886f3b2e0ace84de69d0e185208776aedd471828132d13bc6364393cd5c7f97634de014aaf3fb100c9fa4724c97d6d1220320d2e73e0f1947  buttons.conf
-89195cfaa131eef1a34c882685ed53eb0e80d1520cf9924e775875bde1de883448f3d182775f8323b261afaf0f6a5e73aa31142f2e72acc3ac584a64de6e72a3  charging.sh
-947fb09b7dce638d28afb367ce193437092bca956647486d67438a3fbb695c9354bc1174a68a5993644c3c619f9826cb8a84b8b9f49b513a484089a965b665c5  discharging.sh
-8b0ec10746d98d905041ec18bcc0bfae1961bed574a280ca903a5a5ec71de14df0429c5b49ce25835555c076565d8c35285d7a3b7152e21aa4d1b97659e012eb  HiFi.conf
-f7dfd0c863f4c0d3746533bd3d0885b88ac73fb3b158522da5b57b636a4048d0c68a143f76e6750bb1404893c4803a86928671d4b60e93d253fe4b62d7a2f5f6  msm8953-snd-card-mtp.conf"
+4fa63c184f00033fbae2e4b140c9655061b3b662e337f7bdf5f8e26f7b57d6c66ad01fc93da05ce7d330f0f05bb0d36cc9b356ebfc7eb4200be4d4cc03afc975  pointercal"
