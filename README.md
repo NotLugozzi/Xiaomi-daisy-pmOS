@@ -13,13 +13,13 @@ We are very sorry for the slow pace of the development, its a team of 2 porting 
 - [x] Weston interface
 - [x] SSH to the device
 - [x] Wayland now knows the screen resolution
-- [x] Charging and thermal controls(P)
-- [x] Touchscreen support(P)
-- [x] Usb networking(P)
-- [x] Plasma mobile(P)
+- [x] Touchscreen support
+- [x] Charging and thermal controls(P)(error with charging-sdl, it works fine when booted into plasma. from dmesg the kernel thinks the cpu temp is -22° c)
+- [x] Usb networking(P)(doesn't work on windows, i'm going to try on my ubuntu laptop at some point)
+- [x] Plasma mobile(P)(scaling issues)
+- [x] Wireless connectivity(P)(The firmware blobs now can be loaded and they dont bootloop the phone, nmcli sees the the drivers but i can't connect yet - we're going in the right direction)
 #### broken:
-- [ ] Wireless connectivity - this includes mobile data, wifi and bluetooth
-- [ ] usb OTG
+- [ ] usb OTG( i dont have really intention to port this right now, i'll work on it after i made the system stable enough to be used as a phone, then i'll work on that and on anbox)
 - [ ] camera
 - [ ] Mainline pmOS kernel
 
