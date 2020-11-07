@@ -2,10 +2,9 @@
 All the code in this repository is distributed under the GNU GPL 2.0 license, read [here](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/LICENSE) for further details
 ### Port of postmarketOS to the xiaomi mi a2 lite(daisy)
 This projet aims to run a fully featured installation of alpine linux on the xiaomi mi a2 lite. It isn't mature enough to be daily driven as it only runs the 
-[weston](https://youtu.be/JLhaONV8zBw) demo and [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/71884710-0a75-4978-be57-b59c9a149f9f.png)
-We are very sorry for the slow pace of the development, its a team of 2 porting to a brand new device and getting a basic framebuffer demo in less than 4 days has been a pretty good thing. 
+[weston](https://youtu.be/JLhaONV8zBw) demo and [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/71884710-0a75-4978-be57-b59c9a149f9f.png) 
 
-## List of what works and what doesnt:
+## Current features:
 #### works:
 - [x] Building
 - [x] Installing
@@ -30,16 +29,18 @@ You'll need this to compile the kernel and the necessary files
 ```python
 pip3 install --user pmbootstrap
 ```
-after you've installed it, copy the linux-xiaomi-daisy-2 and the device-xiaomi-daisy-2 folders in your pmbootstrap environment (/home/user/.local/var/pmbootstrap/cache_git/pmaports/device/community/), now from the terminal run
+after you've installed it, run
 ```python
 pmbootstrap init
 ```
-and set it up. At this point you can select weston or [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS#plasma) as the interface and you allow the proprietary drivers
+After it says it finished downlading the repo copy the linux-xiaomi-daisy-2, device-xiaomi-daisy-2 and firmware-xiaomi-daisy-2 folders in your pmbootstrap environment (/home/user/.local/var/pmbootstrap/cache_git/pmaports/device/community/)
+At this point you can select weston or [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS#plasma) as the interface. You can also allow the proprietary wifi drivers
 #### Building the kernel
-After setting pmbootstrap up run this 2 commands, the first will validate checksums for all the necessary patches and for the kernel itself, the second one will verify the device specific package. If they don't give any errors we can move to actually building The Kernel
+After setting pmbootstrap up run this 3 commands, the first will validate checksums for all the necessary patches and for the kernel itself, the second one will verify the device specific package and the last one will check the firmware specific files. If they don't give any errors we can move to actually building The Kernel
 ```python
 pmbootstrap checksum linux-xiaomi-daisy-2
 pmbootstrap checksum device-xiaomi-daisy-2
+pmbootstrap checksum firmware-xiaomi-daisy-2
 ```
 We're going to compile 2 files, the kernel itself and some device specific packages; at this point you should open another terminal window running **pmbootstrap log** to check the compile job in real time. The first command we'll run is this
 ```python
@@ -53,15 +54,16 @@ We're very very close to booting, only a couple of commands left; one of them wi
 ```python
 pmbootstrap install
 ```
-Just follow the installation process and keep an eye on the log window _that i hope you still have running._ At this point you have 2 options: either flashing both the rootfs and the kernel from pmbootstrap(reccomended if you have a _actual pc_ and not a vm) or moving the rootfs to your host, flashing that with fastboot, with this command:
+Just follow the installation process and keep an eye on the log window. At this point you have 2 options: either flashing both the rootfs and the kernel from pmbootstrap(reccomended - you'll find instructions after the install command, just remember to append **--partition userdata** to the rootfs flash command) or moving the rootfs to your host, flashing that with fastboot, with this command:
 ```
-fastboot flash system path/to/xiaomi-daisy-2.img
+fastboot flash userdata path/to/xiaomi-daisy-2.img
 ```
-and then connecting your phone to the vm and flashing the kernel on that. Personally i use the second method and it works great, no matter what you choose, The first boot will probably take a minute or so because it has to initiallize some stuff. you'll get the pmos boot screen and (hopefully)the weston demo desktop:
+And then connecting your phone to the vm and flashing the kernel on that. Keep in mind that installing it to userdata is necessary and it will wipe all your data. The first boot can take up to a minute because it has to initiallize some stuff. you'll get the pmos boot screen and the weston demo desktop:
 ![boot](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/pmOS%20succesful%20boot.jpg)
-Just to be sure everything works, run dmesg and check if you get this output:
-![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png)
-##### Experimental Features. 
+Just to be sure everything works, run dmesg on the linux host and check if you get this output:
+![dmesg](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/dmesg.png).
+If your screen is black after installing plasma mobile, dont worry - it's a known issue with the framebuffer mode in the de, read (here)[https://github.com/NotLugozzi/Xiaomi-daisy-pmOS#plasma] for the temporary fix - you'll have to do this only on the first boot - or after reflashing the rootfs.
+## Experimental Features. 
 if you want to start demos from the ssh shell, edit the runtime dir script using nano **(sudo nano /etc/profile.d/xdg_runtime_dir.sh)**. You'll need to add this:
 ```
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -72,20 +74,7 @@ if test -z "${XDG_RUNTIME_DIR}"; then
   fi
 fi
 ```
-The power button isnt currently implemented in the device package, you'll have to edit buttons.conf to make it work. using nano edit this file **/etc/triggerhappy/triggers.d/buttons.conf** and add the lines according to what you need:
-```
-KEY_VOLUMEDOWN+KEY_POWER 1 reboot 
-```
-```
-KEY_VOLUMEUP+KEY_POWER 1 poweroff 
-```
-```
-KEY_POWER 1 poweroff 
-```
-```
-KEY_VOLUMEUP 1 poweroff 
-```
-### Plasma
+## Plasma
 If you want to use the plasma mobile DE you'll need to edit **/usr/bin/kwinwrapper** first of all you'll need to comment out the default startup line
 ```
 #startplasma-wayland --xwayland --libinput --lockscreen --inputmethod maliit-keyboard --exit-with-session=/usr/lib/libexec/startplasma-waylandsession
