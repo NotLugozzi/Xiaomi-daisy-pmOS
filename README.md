@@ -1,5 +1,6 @@
 # Xiaomi-daisy-pmOS
 All the code in this repository is distributed under the GNU GPL 2.0 license, read [here](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/LICENSE) for further details
+I started merging my work with the postmarketos repo on gitlab, big thanks to maxnet for the help with merging and with the git workflow - i'll keep y'all updated 
 ### Port of postmarketOS to the xiaomi mi a2 lite(daisy)
 This projet aims to run a fully featured installation of alpine linux on the xiaomi mi a2 lite. It isn't mature enough to be daily driven as it only runs the 
 [weston](https://youtu.be/JLhaONV8zBw) demo and [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/71884710-0a75-4978-be57-b59c9a149f9f.png) 
