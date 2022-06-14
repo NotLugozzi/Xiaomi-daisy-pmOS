@@ -4,6 +4,8 @@ All the code in this repository is distributed under the GNU GPL 2.0 license, re
 ### Port of postmarketOS to the xiaomi mi a2 lite(daisy)
 This projet aims to run a fully featured installation of alpine linux on the xiaomi mi a2 lite. It isn't mature enough to be daily driven as it only runs the 
 [weston](https://youtu.be/JLhaONV8zBw) demo and [plasma mobile](https://github.com/NotLugozzi/Xiaomi-daisy-pmOS/blob/main/images/71884710-0a75-4978-be57-b59c9a149f9f.png) 
+### About Mainline
+Around a year ago, postmarketOS community developer Alikates started a [merge request](https://gitlab.com/postmarketOS/pmaports/-/merge_requests/2225) in the PmOS gitlab to start mainlining the device; as of now, most of the phone's features are working to some extent, and he's been hard at work with ironing out most of the bugs he's found
 
 ## Current features:
 #### works:
@@ -24,7 +26,7 @@ This projet aims to run a fully featured installation of alpine linux on the xia
 - [ ] Mainline pmOS kernel
 
 # Installation
-First of all you'll need a linux system(or vm), a Mi A2 Lite with an unlocked bootloader and a couple hours..
+First of all you'll need a linux system (or vm) capable of running pmbootstrap, a Mi A2 Lite with an unlocked bootloader and a couple hours..
 #### Install pmbootstrap
 You'll need this to compile the kernel and the necessary files
 ```python
